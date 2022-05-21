@@ -10,7 +10,7 @@
 
 ## Abstract
 
-The project's main goal is to convert images of text into machine-encoded text. This must me done using digital image processing techniques.
+The project's main goal is to convert images of text into machine-encoded text. This must be done using digital image processing techniques.
 
 ---
 
