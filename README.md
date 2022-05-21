@@ -10,7 +10,7 @@
 
 ## Abstract
 
-The project's main goal is to convert images of printed text into machine-encoded text. This must me done using digital image processing techniques.
+The project's main goal is to convert images of text into machine-encoded text. This must me done using digital image processing techniques.
 
 ---
 
@@ -22,8 +22,8 @@ Here are some example images that will have their embedded text extracted.
 <img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
 
 * Old Cigarettes Advertising
-<img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising.jpg"
-width="400" height="400">
+<img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising1.jpg"
+width="400" height="200">
 
 * Document Photo
 <img title="Document Photo" alt="Document Photo" src="images/id-document.jpg" width="400" height="300">
@@ -56,3 +56,10 @@ For this task, image correlation and feature extraction may be used.
 
 ---
 
+## Data
+
+The data used in this project was found on kaggle:
+* [Text images](https://www.kaggle.com/datasets/volkandl/optical-character-recognition-ocr-texts)
+* [Characters Images](https://www.kaggle.com/datasets/preatcher/standard-ocr-dataset)
+
+---
