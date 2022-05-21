@@ -18,17 +18,17 @@ The project's main goal is to convert images of text into machine-encoded text. 
 
 Here are some example images that will have their embedded text extracted.
 
-* Scanned Text Snippet
+* Scanned Text Snippet<br>
 <img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
 
-* Candy Advertising
+* Candy Advertising<br>
 <img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising1.jpg"
 width="400" height="200">
 
-* Document Photo
+* Document Photo <br>
 <img title="Document Photo" alt="Document Photo" src="images/id-document.jpg" width="400" height="300">
 
-* Movie Subtitles
+* Movie Subtitles <br>
 <img title="Movie subtitles" alt="Movie subtitles" src="images/movie-subtitles.jpg" width="400" height="400">
 
 
