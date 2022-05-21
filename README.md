@@ -19,16 +19,17 @@ The project's main goal is to convert images of printed text into machine-encode
 Here are some example images that will have their embedded text extracted.
 
 * Scanned Text Snippet
-<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png">
+<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
 
 * Old Cigarettes Advertising
-<img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising.jpg">
+<img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising.jpg"
+width="400" height="400">
 
 * Document Photo
-<img title="Document Photo" alt="Document Photo" src="images/id-document.jpg">
+<img title="Document Photo" alt="Document Photo" src="images/id-document.jpg" width="400" height="300">
 
 * Movie Subtitles
-<img title="Movie subtitles" alt="Movie subtitles" src="images/movie-subtitles.jpg">
+<img title="Movie subtitles" alt="Movie subtitles" src="images/movie-subtitles.jpg" width="400" height="400">
 
 
 
