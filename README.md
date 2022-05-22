@@ -21,7 +21,7 @@ Here are some example images that will have their embedded text extracted.
 * Scanned Text Snippet<br>
 <img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
 
-* Candy Advertising<br>
+* Food Packaging<br>
 <img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising1.jpg"
 width="400" height="200">
 
