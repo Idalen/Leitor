@@ -26,9 +26,9 @@ Here are some few scaled down example images that will have their embedded text 
 <img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="data/other_images/boulos-snippet.png" width="600" height="300">
 
 * Website Screenshot<br>
-<img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/31.jpg"
+<img title="Website Screenshot" alt="Website print" src="data/print_only_images/31.jpg"
 width="600" height="200">
-<img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/1.jpg"
+<img title="Website Screenshot" alt="Website print" src="data/print_only_images/1.jpg"
 width="600" height="200">
 
 * Book Page Photo <br>
