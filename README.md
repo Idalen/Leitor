@@ -10,7 +10,7 @@
 
 ## Abstract
 
-The project's main goal is to convert images of text into machine-encoded text. This must me done using digital image processing techniques.
+The project's main goal is to convert images of text into machine-encoded text. This must be done using digital image processing techniques.
 
 ---
 
@@ -21,7 +21,7 @@ Here are some example images that will have their embedded text extracted.
 * Scanned Text Snippet<br>
 <img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
 
-* Candy Advertising<br>
+* Food Packaging<br>
 <img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising1.jpg"
 width="400" height="200">
 
@@ -52,7 +52,7 @@ For text extraction from image and then separate each character from the text, t
 ### Pattern Matching
 
 The project will use some kind of pattern recognition technique to identify the characters extracted in segmentation step.
-For this task, image correlation and feature extraction may be used.
+For this task, image correlation, feature extraction and machine learning algorithms may be used.
 
 ---
 
