@@ -10,28 +10,32 @@
 
 ## Abstract
 
-The project's main goal is to convert images of text into machine-encoded text. This must be done using digital image processing techniques.
+Leitor project has the main goal of converting images of texts into machine-encoded text. In other words, the program will extract the text from an image which contains it written or printed and will turn it into a string of characters.
+
+At first, for the sake of simplicity, the project scope will only cover images of white background pages containing printed text. These images are taken from screenshots of websites or photographies of books. These images may have noise, blur and uncontrolled lighting conditions.
+
+This objective must be achieved using digital image processing techniques.
 
 ---
 
 ## Inputs
 
-Here are some example images that will have their embedded text extracted.
+Here are some few scaled down example images that will have their embedded text extracted.
 
 * Scanned Text Snippet<br>
-<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="images/boulos-snippet.png" width="400" height="300">
+<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="data/other_images/boulos-snippet.png" width="400" height="300">
 
-* Food Packaging<br>
-<img title="Old Cigarettes Advertising" alt="Old Cigarettes Advertising" src="images/advertising1.jpg"
+* Website Screenshot<br>
+<img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/31.JPG"
+width="400" height="200">
+<img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/1.JPG"
 width="400" height="200">
 
-* Document Photo <br>
-<img title="Document Photo" alt="Document Photo" src="images/id-document.jpg" width="400" height="300">
+* Book Page Photo <br>
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="400" height="300">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="400" height="300">
 
-* Movie Subtitles <br>
-<img title="Movie subtitles" alt="Movie subtitles" src="images/movie-subtitles.jpg" width="400" height="400">
-
-
+All images below were taken by the members of the project with a cellphone camera or taking screenshots from webpages on the internet.
 
 
 
@@ -39,9 +43,19 @@ width="400" height="200">
 
 ## Methods
 
-The project expects the use of the following techniques:
+The project will apply the following techniques in order to achieve its objective:
 
-### Image Enhancement and Filtering
+### Grayscaling
+
+Once the text is generally not affected by color, the images are converted into grayscale in order to manipulate them easier.
+
+### Gaussian Blur
+
+A small gaussian blur is applied to smooth out the image and thus reduce the noise in it. With the image smoothed out, treshould approaches can perform better.
+
+### Gaussian Adaptative Treshoulsing
+
+Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting.
 
 In order to reduce noise and detect transistions, some sort of enhancement and filtering image processing technique will be used.
 
