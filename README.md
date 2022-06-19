@@ -67,10 +67,17 @@ Now our goal is to find areas with text, i.e. text blocks of the image. To make 
 
 ### Erosion/Dilation
 
-Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. Therefore, we used morphological operations to handle this problem, as you can see below:
+Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. 
 
 <img title="Leitor diagram" alt="diagram" src="docs/results/binarization_issue.png" width="800" height="400">
+
+Therefore, we used morphological operations to handle this problem, as you can see below:
+
 <img title="Leitor diagram" alt="diagram" src="docs/results/morphological_good.png" width="800" height="400">
+
+Although the erosion and dilation techniques helped a lot with the remaining noise, it also caused some issues with some text areas:
+
+<img title="Leitor diagram" alt="diagram" src="docs/results/morphological_bad.png" width="800" height="400">
 
 
 ### Image Segmentation
