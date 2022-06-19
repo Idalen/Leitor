@@ -1,4 +1,5 @@
 from math import degrees
+from xxlimited import new
 import numpy as np
 import cv2
 
@@ -75,17 +76,22 @@ def deskew(image):
     return image
 
 def dilate(image):
-    kernel = np.ones((3,4)).astype("uint8")/3
-    img_dilation = cv2.dilate(image, kernel, iterations=1)
+    kernel = np.ones((2,2)).astype("uint8")
+    new_image = cv2.dilate(image, kernel, iterations=1)
 
-    return img_dilation
+    return new_image
 
 def erode(image):
-    kernel = np.ones((2,2)).astype("uint8")/2
-    img_dilation = cv2.erode(image, kernel, iterations=1)
+    kernel = np.ones((2,2)).astype("uint8")
+    new_image = cv2.erode(image, kernel, iterations=1)
     
+    return new_image
 
-    return img_dilation
+def close(image):
+    kernel = np.ones((2,2)).astype("uint8")
+    new_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
+
+    return new_image
 
 def sharpen(image):
     """"Laplacian filter"""
