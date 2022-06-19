@@ -23,17 +23,17 @@ This objective must be achieved using digital image processing techniques.
 Here are some few scaled down example images that will have their embedded text extracted.
 
 * Scanned Text Snippet<br>
-<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="data/other_images/boulos-snippet.png" width="400" height="300">
+<img title="Scanned Text Snippet from Geometria analítica - um tratamento vetorial" alt="Text Snippet" src="data/other_images/boulos-snippet.png" width="600" height="300">
 
 * Website Screenshot<br>
 <img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/31.JPG"
-width="400" height="200">
+width="600" height="200">
 <img title="Website Screenshot" alt="Website print" src="data/print_only_images/images/1.JPG"
-width="400" height="200">
+width="600" height="200">
 
 * Book Page Photo <br>
-<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="400" height="300">
-<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="400" height="300">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="600" height="300">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="600" height="300">
 
 All images below were taken by the members of the project with a cellphone camera or taking screenshots from webpages on the internet.
 
