@@ -32,8 +32,8 @@ width="600" height="200">
 width="600" height="200">
 
 * Book Page Photo <br>
-<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="600" height="300">
-<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="600" height="300">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="400" height="400">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="400" height="400">
 
 All images below were taken by the members of the project with a cellphone camera or taking screenshots from webpages on the internet.
 
@@ -43,21 +43,34 @@ All images below were taken by the members of the project with a cellphone camer
 
 ## Methods
 
-The project will apply the following techniques in order to achieve its objective:
+Below are a diagram which contains the steps this projects will follow:
+
+<img title="Leitor diagram" alt="diagram" src="docs/diagram/diagram.png" width="600" height="400">
+
+The project will apply these techniques in order to achieve its objective:
 
 ### Grayscaling
 
 Once the text is generally not affected by color, the images are converted into grayscale in order to manipulate them easier.
 
-### Gaussian Blur
+### Blur
 
 A small gaussian blur is applied to smooth out the image and thus reduce the noise in it. With the image smoothed out, treshould approaches can perform better.
+
+### Sharpening
+
+Since the image was blurred to remove some noise, now  a laplacian sharpening filter must be used in order to make the image more defined. Thus, further processing can achieve better results.
 
 ### Gaussian Adaptative Treshoulsing
 
 Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting.
 
-In order to reduce noise and detect transistions, some sort of enhancement and filtering image processing technique will be used.
+### Erosion/Dilation
+
+Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. Therefore, we used morphological operations to handle this problem, as you can see below:
+
+<img title="Leitor diagram" alt="diagram" src="docs/results/binarization_issue.png" width="800" height="400">
+
 
 ### Image Segmentation
 
@@ -70,10 +83,4 @@ For this task, image correlation, feature extraction and machine learning algori
 
 ---
 
-## Data
 
-The data used in this project was found on kaggle:
-* [Text images](https://www.kaggle.com/datasets/volkandl/optical-character-recognition-ocr-texts)
-* [Characters Images](https://www.kaggle.com/datasets/preatcher/standard-ocr-dataset)
-
----
