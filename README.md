@@ -67,7 +67,7 @@ Now our goal is to find areas with text, i.e. text blocks of the image. To make 
 
 Below you can see the differences between binarization results whether denoise is applied or not.
 
-When denoise and sharpening applied
+When denoise and sharpening are applied
 <img title="Leitor diagram" alt="diagram" src="docs/results/good_tresholding.png" width="800" height="400">
 
 When not
