@@ -31,12 +31,13 @@ class Leitor:
 
         image = grayscaling(image)
 
-
         image = gaussian_blur(image, 2, 5)
 
         image = sharpen(image)
 
         image = tresholding(image)
+
+        imageio.imwrite('tresholding_image_nopp.png',image,)
 
         plt.subplot(121)
         plt.title("Binarized Image")
@@ -51,11 +52,11 @@ class Leitor:
         plt.title("Eroded and Dilated Image")
         plt.imshow(image, cmap='gray')
 
-        #imageio.imwrite('tresholding_image_nopp.png',image,)   
+           
 
 
         
-        plt.show()
+        #plt.show()
 
 
     # def _set_image_dpi(self, file_path):

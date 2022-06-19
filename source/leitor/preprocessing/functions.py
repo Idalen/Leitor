@@ -77,7 +77,7 @@ def deskew(image):
 
 def dilate(image):
     kernel = np.ones((2,2)).astype("uint8")
-    new_image = cv2.dilate(image, kernel, iterations=1)
+    new_image = cv2.dilate(image, kernel, iterations=2)
 
     return new_image
 

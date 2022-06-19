@@ -65,6 +65,14 @@ Since the image was blurred to remove some noise, now  a laplacian sharpening fi
 
 Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting.
 
+Below you can see the differences between binarization results whether denoise is applied or not.
+
+When denoise and sharpening applied
+<img title="Leitor diagram" alt="diagram" src="docs/results/good_tresholding.png" width="800" height="400">
+
+When not
+<img title="Leitor diagram" alt="diagram" src="docs/results/bad_tresholding.png" width="800" height="400">
+
 ### Erosion/Dilation
 
 Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. 
@@ -78,6 +86,8 @@ Therefore, we used morphological operations to handle this problem, as you can s
 Although the erosion and dilation techniques helped a lot with the remaining noise, it also caused some issues with some text areas:
 
 <img title="Leitor diagram" alt="diagram" src="docs/results/morphological_bad.png" width="800" height="400">
+
+This issue, until this moment, has no solution. 
 
 
 ### Image Segmentation
