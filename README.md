@@ -77,27 +77,38 @@ When not
 
 Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. 
 
-<img title="Leitor diagram" alt="diagram" src="docs/results/binarization_issue.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/results/binarization_issue.png" width="800" height="400">
 
 Therefore, we used morphological operations to handle this problem, as you can see below:
 
-<img title="Leitor diagram" alt="diagram" src="docs/results/morphological_good.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/results/morphological_good.png" width="800" height="400">
 
 Although the erosion and dilation techniques helped a lot with the remaining noise, it also caused some issues with some text areas:
 
-<img title="Leitor diagram" alt="diagram" src="docs/results/morphological_bad.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/results/morphological_bad.png" width="800" height="400">
 
 This issue, until this moment, has no solution. 
 
 
-### Image Segmentation
+### Deskew
 
-For text extraction from image and then separate each character from the text, the project may use some kind of segmentation techniques.
+In other to achieve better performances with the futher steps of this project, the images are rotated to compensate for skewing. To achieve this, dilation is used to define the lines, so Hough Lines algorithm can detect straight lines in the image and compute the skewing angle.
 
-### Pattern Matching
+With the steps done, we can use the given angle to rotate the image properly. Some examples can be seen below.
 
-The project will use some kind of pattern recognition technique to identify the characters extracted in segmentation step.
-For this task, image correlation, feature extraction and machine learning algorithms may be used.
+Before deskewing
+<img title="Plot" alt="diagram" src="docs/results/skewed_image.png" width="800" height="400">
+
+After deskewing
+<img title="Plot" alt="diagram" src="docs/results/deskewed_image.png" width="800" height="400">
+
+
+
+### Line Segmentation
+
+### Word Segmentation
+
+### Word Matching
 
 ---
 

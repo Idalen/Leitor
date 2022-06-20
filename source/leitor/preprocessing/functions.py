@@ -1,5 +1,4 @@
 from math import degrees
-from xxlimited import new
 import numpy as np
 import cv2
 
@@ -66,23 +65,69 @@ def tresholding(image, window_size=3):
 
     new_image = cv2.adaptiveThreshold(
         image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-        cv2.THRESH_BINARY_INV, 1001, np.mean(image) // 4)
+        cv2.THRESH_BINARY_INV, 21, np.mean(image) // 4)
 
     return new_image
 
 
 def deskew(image):
-    #### TODO
+
+    dilate = cv2.dilate(image, np.ones((15,2)), iterations=3)
+
+    edges = cv2.Canny(dilate, 50, 150, apertureSize=3)
+    
+    ''' Finds the skew angle of an edge image by repeatedly
+        applying the hough lines algorithm '''
+
+    (h, w) = edges.shape[:2]
+    threshold = max(h, w)
+    while True:
+        #print('Testing with treshold', threshold)
+        lines = cv2.HoughLines(edges, 1, np.pi / 180, threshold)
+
+        if lines is None or len(lines) == 0:
+            threshold -= threshold // 4
+            continue
+
+        angles = []
+        for line in lines:
+            for rho, theta in line:
+                angle = (theta - np.pi / 2.0)
+                angle = degrees(angle) % 360
+                if angle > 180:
+                    angle = angle - 360
+                # Ignores angles not in the -60 to 60 range
+                if angle > 60 or angle < -60:
+                    continue
+                angles.append(angle)
+        if not len(angles):
+            # Reduces the threshold until we find at least some lines
+            threshold -= threshold // 4
+            continue
+        break
+    # Calculate the average of the line's angles
+    angle = np.mean(angles)
+
+    (h, w) = image.shape[:2]
+    center = (w // 2, h // 2)
+    M = cv2.getRotationMatrix2D(center, angle, 1.0)
+    image = cv2.warpAffine(
+        image, M, (w, h), flags=cv2.INTER_CUBIC,
+        borderMode=cv2.BORDER_CONSTANT,
+        borderValue=255)
+    
     return image
+
+    
 
 def dilate(image):
     kernel = np.ones((2,2)).astype("uint8")
-    new_image = cv2.dilate(image, kernel, iterations=2)
+    new_image = cv2.dilate(image, kernel, iterations=1)
 
     return new_image
 
 def erode(image):
-    kernel = np.ones((2,2)).astype("uint8")
+    kernel = np.array([[1,0,], [0, 1]]).astype(np.uint8)
     new_image = cv2.erode(image, kernel, iterations=1)
     
     return new_image
