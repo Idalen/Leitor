@@ -106,9 +106,18 @@ After deskewing
 
 ### Line Segmentation
 
+Need more research
+ideas: unet
+
 ### Word Segmentation
 
+Need more research
+ideas: unet
+
 ### Word Matching
+
+Need more research
+ideas: RCNN, morphological hit-miss, pattern matching
 
 ---
 
