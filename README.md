@@ -32,7 +32,7 @@ width="600" height="200">
 width="600" height="200">
 
 * Book Page Photo <br>
-<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="800" height="400">
+<img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/7.jpg" width="600" height="400">
 <img title="Book Page Photo" alt="Book Page Photo" src="data/photo_only_images/2.jpg" width="800" height="400">
 
 All images below were taken by the members of the project with a cellphone camera or taking screenshots from webpages on the internet.
