@@ -38,10 +38,10 @@ class Leitor:
 
         image = deskew(image) 
 
-        imageio.imwrite("i.png", image)
+        #imageio.imwrite("i.png", image)
 
-        #plt.imshow(image, cmap='gray')
-        #plt.show()
+        plt.imshow(image, cmap='gray')
+        plt.show()
 
 
 
