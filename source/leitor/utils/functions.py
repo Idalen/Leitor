@@ -1,10 +1,26 @@
+# Fundamental functions that are undirectly used in Leitor
+
 import numpy as np
 
-def convolution2d(a, b):
-    A = np.fft.fft2(a)
-    B = np.fft.fft2(b, s=a.shape)
+def convolution2d(image, kernel):
 
-    new_image = (np.abs(np.fft.fftshift(np.fft.ifft2(A*B))))
+    """
+    Applies a 2d convolution between an image and a kernel.
+    
+    parameters:
+        image - numpy.array
+            the image to be filtered
+        kernel - numpy.array
+            the kernel which will be used as filter
+    output:
+        numpy.ndarray
+            The image filtered
+    """
+
+    Image = np.fft.fft2(image)
+    Kernel = np.fft.fft2(kernel, s=image.shape)
+
+    new_image = (np.abs(np.fft.fftshift(np.fft.ifft2(Image*Kernel))))
 
     return new_image
 

@@ -103,21 +103,19 @@ After deskewing
 <img title="Plot" alt="diagram" src="docs/results/deskewed_image.png" width="800" height="400">
 
 
+## Next Steps
 
 ### Line Segmentation
 
-Need more research
-ideas: unet
+ideas: CNN, horizontal projection
 
 ### Word Segmentation
 
-Need more research
-ideas: unet
+ideas: Map blank spaces in line
 
 ### Word Matching
 
-Need more research
-ideas: RCNN, morphological hit-miss, pattern matching
+ideas: CNN, morphological hit-miss, pattern matching
 
 ---
 

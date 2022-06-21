@@ -13,7 +13,13 @@ from .preprocessing import sharpen
 from .preprocessing import close
 
 
+
 class Leitor:
+
+    """
+    Main class of the project. It is not finished.
+    Everything below is written for testing only
+    """
 
     def __init__(self):
         pass
@@ -32,15 +38,17 @@ class Leitor:
 
         image = tresholding(image)
 
-        ##not sure of these 
-        image = erode(image)
-        image = dilate(image)
+        ## not sure of this approach, read README for futher understanding
+        # image = erode(image)
+        # image = dilate(image)
 
         image = deskew(image) 
 
-        #imageio.imwrite("i.png", image)
+        # horizontal projection (line segmentation)
+        #plt.barh(list(range(image.shape[0])),np.sum(image, axis=1))
 
         plt.imshow(image, cmap='gray')
+
         plt.show()
 
 

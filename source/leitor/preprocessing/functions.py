@@ -1,3 +1,5 @@
+### Functions used for Leitor's preprocessing
+
 from math import degrees
 import numpy as np
 import cv2
@@ -20,7 +22,7 @@ def gaussian_blur(image, k, sigma):
             A optimizable constant
     output:
         numpy.ndarray
-            The image with gaussian blur
+            The normalized image with gaussian blur
     """
 
     #computes gaussian degradation function
@@ -47,12 +49,36 @@ def gaussian_blur(image, k, sigma):
     return normalize(degraded_image)
 
 def grayscaling(image):
-    return image[:, :, 0]
 
-def tresholding(image, window_size=3):
+    """
+    Extract only one color channel from the image, turning it to grayscale
     
-    ####TODO code it in julia
+    parameters:
+        image - numpy.array
+            the image to be degraded by the gaussian blur
+    output:
+        numpy.ndarray
+            The grayscaled image
+    """
 
+    return image[:, :, 1]
+
+def tresholding(image):
+    
+    """
+    Applies a gaussian adaptative tresholding to binarize an image
+    
+    parameters:
+        image - numpy.array
+            the image to be binarized by applying gaussian adaptative tresholding
+    output:
+        numpy.ndarray
+            The image binarized
+    """
+
+    ####TODO code it in julia for a faster program
+
+    ####Attempt to code it in python
     # pad_width = window_size//2
     # padded_image = np.pad(image, pad_width, mode='edge')
 
@@ -63,6 +89,7 @@ def tresholding(image, window_size=3):
     #         treshold = np.mean(padded_image[i-window_size//2:ceil(i+window_size/2), j-window_size//2:ceil(j+window_size/2)])
     #         new_image[i-pad_width, j-pad_width] = padded_image[i, j] > treshold
 
+    # Using OpenCV, parameters were defined manually by testing
     new_image = cv2.adaptiveThreshold(
         image, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
         cv2.THRESH_BINARY_INV, 21, np.mean(image) // 4)
@@ -72,12 +99,21 @@ def tresholding(image, window_size=3):
 
 def deskew(image):
 
+    """
+    Finds the skew angle of an edge image by repeatedly applying
+    the hough lines algorithm. Then, rotate the image in order to deskew it.
+
+    parameters:
+        image - numpy.array
+            the image to be deskewed
+    output:
+        numpy.ndarray
+            The deskewed image
+    """
+
     dilate = cv2.dilate(image, np.ones((15,2)), iterations=3)
 
     edges = cv2.Canny(dilate, 50, 150, apertureSize=3)
-    
-    ''' Finds the skew angle of an edge image by repeatedly
-        applying the hough lines algorithm '''
 
     (h, w) = edges.shape[:2]
     threshold = max(h, w)
@@ -121,24 +157,69 @@ def deskew(image):
     
 
 def dilate(image):
+
+    """
+    Applies a morphological dilation to an image
+    
+    parameters:
+        image - numpy.array
+            the image to be dilated
+    output:
+        numpy.ndarray
+            The dilated image
+    """
+    
     kernel = np.ones((2,2)).astype("uint8")
     new_image = cv2.dilate(image, kernel, iterations=1)
 
     return new_image
 
 def erode(image):
+
+    """
+    Applies a morphological erosion to an image
+    
+    parameters:
+        image - numpy.array
+            the image to be eroded
+    output:
+        numpy.ndarray
+            The eroded image
+    """
+
     kernel = np.array([[1,0,], [0, 1]]).astype(np.uint8)
     new_image = cv2.erode(image, kernel, iterations=1)
     
     return new_image
 
 def close(image):
+
+    """
+    Applies a morphological closing operation to an image
+    
+    parameters:
+        image - numpy.array
+            the image to be 'closed'
+    output:
+        numpy.ndarray
+            The 'closed' image
+    """
+
     kernel = np.ones((2,2)).astype("uint8")
     new_image = cv2.morphologyEx(image, cv2.MORPH_CLOSE, kernel)
 
     return new_image
 
 def sharpen(image):
-    """"Laplacian filter"""
+    """
+    Applies a laplacian filter to sharpen an image
+    
+    parameters:
+        image - numpy.array
+            the image to be sharpened
+    output:
+        numpy.ndarray
+            The sharpened image
+    """
     kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
     return cv2.filter2D(image, -1, kernel)

@@ -1,3 +1,8 @@
+###
+### MAIN FILE
+###
+### Author: Daniel Martins Vieira
+
 from leitor import Leitor
 
 #path = '../data/print_only_images/80.jpg'
