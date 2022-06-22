@@ -39,10 +39,10 @@ class Leitor:
         image = tresholding(image)
 
         ## not sure of this approach, read README for futher understanding
-        # image = erode(image)
-        # image = dilate(image)
+        image = erode(image)
+        image = dilate(image)
 
-        image = deskew(image) 
+        #image = deskew(image) 
 
         # horizontal projection (line segmentation)
         #plt.barh(list(range(image.shape[0])),np.sum(image, axis=1))

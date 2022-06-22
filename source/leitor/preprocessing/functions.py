@@ -221,5 +221,5 @@ def sharpen(image):
         numpy.ndarray
             The sharpened image
     """
-    kernel = np.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
+    kernel = np.array([[-1,-1,-1], [-1,8.7,-1], [-1,-1,-1]])
     return cv2.filter2D(image, -1, kernel)
