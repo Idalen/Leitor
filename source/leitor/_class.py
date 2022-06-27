@@ -2,6 +2,8 @@ import imageio
 import numpy as np
 from pathlib import Path
 from matplotlib import pyplot as plt
+import os
+from tqdm import tqdm
  
 from .preprocessing import gaussian_blur
 from .preprocessing import grayscaling
@@ -10,7 +12,7 @@ from .preprocessing import deskew
 from .preprocessing import dilate
 from .preprocessing import erode
 from .preprocessing import sharpen
-from .preprocessing import close
+from .preprocessing import binary_inv
 
 
 
@@ -24,7 +26,7 @@ class Leitor:
     def __init__(self):
         pass
 
-    def test(self, path):
+    def preprocess(self, path):
 
         path = Path(path)
 
@@ -44,12 +46,26 @@ class Leitor:
 
         image = deskew(image) 
 
-        # horizontal projection (line segmentation)
-        #plt.barh(list(range(image.shape[0])),np.sum(image, axis=1))
+        image = binary_inv(image)
 
-        plt.imshow(image, cmap='gray')
+        return image
 
-        plt.show()
+    def load(self, dir):
+        self.dir = Path(dir)
+        self.files = [self.dir/file for file in os.listdir(self.dir)]
+
+    def process_save(self):
+        
+        output_dir = self.dir.parent/'processed'
+        os.makedirs(output_dir, exist_ok=True)
+
+        for path in tqdm(self.files):
+            if not path.is_dir():
+                image = self.preprocess(path)
+                imageio.imwrite(output_dir/path.name, image)
+
+
+    
 
 
 

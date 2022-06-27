@@ -5,8 +5,9 @@
 
 from leitor import Leitor
 
-#path = '../data/print_only_images/80.jpg'
-path = '../data/photo_only_images/1.jpg'
+dir = '../data/print_only_images/raw'
+#path = '../data/photo_only_images/8.jpg'
 
 leitor = Leitor()
-leitor.test(path)
+leitor.load(dir)
+leitor.process_save()

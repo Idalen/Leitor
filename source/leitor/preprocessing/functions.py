@@ -51,7 +51,7 @@ def gaussian_blur(image, k, sigma):
 def grayscaling(image):
 
     """
-    Extract only one color channel from the image, turning it to grayscale
+    Convert the image to grayscale format
     
     parameters:
         image - numpy.array
@@ -61,7 +61,7 @@ def grayscaling(image):
             The grayscaled image
     """
 
-    return image[:, :, 1]
+    return 0.2989 * image[:,:,0] + 0.5870 * image[:,:,1] + 0.1140 * image[:,:,2]
 
 def tresholding(image):
     
@@ -223,3 +223,6 @@ def sharpen(image):
     """
     kernel = np.array([[-1,-1,-1], [-1,8.7,-1], [-1,-1,-1]])
     return cv2.filter2D(image, -1, kernel)
+
+def binary_inv(image):
+    return (((image.astype('float32')/255+1)%2)*255).astype('uint8')

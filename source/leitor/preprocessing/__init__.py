@@ -6,3 +6,4 @@ from .functions import dilate
 from .functions import erode
 from .functions import sharpen
 from .functions import close
+from .functions import binary_inv
