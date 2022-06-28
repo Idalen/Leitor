@@ -68,24 +68,24 @@ Now our goal is to find areas with text, i.e. text blocks of the image. To make 
 Below you can see the differences between binarization results whether denoise is applied or not.
 
 When denoise and sharpening are applied
-<img title="Leitor diagram" alt="diagram" src="docs/results/good_tresholding.png" width="800" height="400">
+<img title="Leitor diagram" alt="diagram" src="docs/images/good_tresholding.png" width="800" height="400">
 
 When not
-<img title="Leitor diagram" alt="diagram" src="docs/results/bad_tresholding.png" width="800" height="400">
+<img title="Leitor diagram" alt="diagram" src="docs/images/bad_tresholding.png" width="800" height="400">
 
 ### Erosion/Dilation
 
 Although the last preprocessing techniques applied in order to prepare the image for the text extraction, it also highlight some persistant noise. 
 
-<img title="Plot" alt="diagram" src="docs/results/binarization_issue.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/images/binarization_issue.png" width="800" height="400">
 
 Therefore, we used morphological operations to handle this problem, as you can see below:
 
-<img title="Plot" alt="diagram" src="docs/results/morphological_good.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/images/morphological_good.png" width="800" height="400">
 
 Although the erosion and dilation techniques helped a lot with the remaining noise, it also caused some issues with some text areas:
 
-<img title="Plot" alt="diagram" src="docs/results/morphological_bad.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/images/morphological_bad.png" width="800" height="400">
 
 This issue, until this moment, has no solution. 
 
@@ -97,10 +97,10 @@ In other to achieve better performances with the futher steps of this project, t
 With the steps done, we can use the given angle to rotate the image properly. Some examples can be seen below.
 
 Before deskewing
-<img title="Plot" alt="diagram" src="docs/results/skewed_image.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/images/skewed_image.png" width="800" height="400">
 
 After deskewing
-<img title="Plot" alt="diagram" src="docs/results/deskewed_image.png" width="800" height="400">
+<img title="Plot" alt="diagram" src="docs/images/deskewed_image.png" width="800" height="400">
 
 
 ## Next Steps
