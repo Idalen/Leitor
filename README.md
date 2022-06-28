@@ -28,7 +28,7 @@ Here are some few scaled down example images that will have their embedded text 
 * Website Screenshot<br>
 <img title="Website Screenshot" alt="Website print" src="data/print_only_images/31.jpg"
 width="600" height="200">
-<img title="Website Screenshot" alt="Website print" src="data/print_only_images/1.jpg"
+<img title="Website Screenshot" alt="Website print" src="data/print_only_images/raw/1.jpg"
 width="600" height="200">
 
 * Book Page Photo <br>
