@@ -52,17 +52,25 @@ class Leitor:
 
     def load(self, dir):
         self.dir = Path(dir)
-        self.files = [self.dir/file for file in os.listdir(self.dir)]
+        self.files = [self.dir/file for file in os.listdir(self.dir) if not (self.dir/file).is_dir()]
 
     def process_save(self):
         
-        output_dir = self.dir.parent/'processed'
+        output_dir = self.dir.parent/'mask'
         os.makedirs(output_dir, exist_ok=True)
 
         for path in tqdm(self.files):
-            if not path.is_dir():
-                image = self.preprocess(path)
-                imageio.imwrite(output_dir/path.name, image)
+                image = self.open(path=path).astype("float64")
+                image /= np.max(image)
+                imageio.imwrite(output_dir/path.name, image.astype("int8"))
+
+    def open(self, path=None, index=0):
+        if path == None:
+            image = imageio.imread(self.files[index])
+        else:
+            image = imageio.imread(path)
+
+        return image
 
 
     
