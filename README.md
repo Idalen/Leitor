@@ -62,7 +62,7 @@ Since the image was blurred to remove some noise, now  a laplacian sharpening fi
 
 Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting, as you can see.
 
-<img title="Treshold" alt="Treshold" src="docs/images/treshold_analysis.jpg" width="800" height="600">
+<img title="Treshold" alt="Treshold" src="docs/images/threshold_analysis.jpg" width="800" height="600">
 
 
 Below you can see the differences between binarization results whether denoise is applied or not.
