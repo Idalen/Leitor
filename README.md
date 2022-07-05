@@ -60,7 +60,10 @@ Since the image was blurred to remove some noise, now  a laplacian sharpening fi
 
 ### Gaussian Adaptative Treshoulsing
 
-Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting.
+Now our goal is to find areas with text, i.e. text blocks of the image. To make text block detection easier we will invert and maximize the colors of our image, that will be achieved via thresholding. So now text becomes white and background is black. Gaussian adaptative tresholding is used in this due it better performances in images with noise and uncontrolled lighting, as you can see.
+
+<img title="Treshold" alt="Treshold" src="docs/images/treshold_analysis.jpg" width="800" height="600">
+
 
 Below you can see the differences between binarization results whether denoise is applied or not.
 
@@ -104,7 +107,7 @@ After deskewing
 
 ### Line Segmentation
 
-For line segmentation, a Unet convolutional neural network will be used. It will be trained with preprocessed images as its inputs and manually anotated groundtruth images that will represent the desired output from the CNN. The Unet architecture can be seen below.
+For line segmentation, an Unet convolutional neural network will be used. It will be trained with preprocessed images as its inputs and manually anotated groundtruth images that will represent the desired output from the CNN. The Unet architecture can be seen below.
 
 <img title="Unet" alt="CNN" src="docs/images/unet.png" width="1200" height="400">
 
