@@ -2,9 +2,6 @@
 
 ## Collaborators
 * [Daniel Martins Vieira](https://github.com/Idalen) (11215719)
-* [Guilherme Alves Lindo](https://github.com/Guial07) (8504480)
-* [Jayro Boy Neto](https://github.com/jayroboy) (9762880)
-* [Marcus Vinícius Santos](https://github.com/marcus_v_rodrigues) (11218862)
 
 ---
 
