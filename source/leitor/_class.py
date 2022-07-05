@@ -14,6 +14,8 @@ from .preprocessing import erode
 from .preprocessing import sharpen
 from .preprocessing import binary_inv
 
+from .line_segmentation import segment_lines
+
 
 
 class Leitor:
@@ -26,11 +28,23 @@ class Leitor:
     def __init__(self):
         pass
 
-    def preprocess(self, path):
-
+    def extract(self, path):
+        
         path = Path(path)
-
         image = imageio.imread(path)
+
+        preprocessed_image = self.preprocess(image)
+
+        seg_lines, seg_image = segment_lines(preprocessed_image)
+
+        # plt.subplot(121)
+        # plt.imshow(preprocessed_image, cmap='gray')
+        # plt.subplot(122)
+        plt.imshow(seg_image, cmap='gray')
+        plt.show()
+ 
+
+    def preprocess(self, image):
 
         image = grayscaling(image)
 
@@ -49,6 +63,7 @@ class Leitor:
         image = binary_inv(image)
 
         return image
+
 
     def load(self, dir):
         self.dir = Path(dir)

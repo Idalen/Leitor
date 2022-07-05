@@ -5,12 +5,9 @@
 
 from leitor import Leitor
 
-dir = '../data/print_only_images/mask'
-#path = '../data/photo_only_images/8.jpg'
+#dir = '../data/print_only_images/mask'
+path = '../data/photo_only_images/8.jpg'
 
 leitor = Leitor()
-leitor.load(dir)
-image = leitor.open()
+leitor.extract(path)
 
-print(image.max())
-print(image.min())
