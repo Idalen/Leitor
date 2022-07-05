@@ -104,7 +104,10 @@ After deskewing
 
 ### Line Segmentation
 
-ideas: CNN, horizontal projection
+For line segmentation, a Unet convolutional neural network will be used. It will be trained with preprocessed images as its inputs and manually anotated groundtruth images that will represent the desired output from the CNN. The Unet architecture can be seen below.
+
+<img title="Unet" alt="CNN" src="docs/images/unet.png" width="1200" height="400">
+
 
 ### Word Segmentation
 
