@@ -142,8 +142,10 @@ def segment_lines(image):
 
         p_img=image[coors[1]:coors[3],coors[0]:coors[2]].copy()
 
-        line_img_array.append(p_img)
+        if p_img.shape[1] >= int(image.shape[1]/10):
+            line_img_array.append(p_img)
 
+        
     seg_image = cv2.drawContours(image, contours, -1, (0,255,0), 3)
 
     return line_img_array, seg_image

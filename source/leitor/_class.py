@@ -3,6 +3,7 @@ import numpy as np
 from pathlib import Path
 from matplotlib import pyplot as plt
 import os
+import shutil
 from tqdm import tqdm
  
 from .preprocessing import gaussian_blur
@@ -28,41 +29,60 @@ class Leitor:
     def __init__(self):
         pass
 
-    def extract(self, path):
+    def extract(self, path, save=None):
         
         path = Path(path)
         image = imageio.imread(path)
 
-        preprocessed_image = self.preprocess(image)
+        if save:
+            save = Path(save) 
+            if save.is_dir:
+                shutil.rmtree(save)
+            os.makedirs(save)
+
+        preprocessed_image = self.preprocess(image, save)
 
         seg_lines, seg_image = segment_lines(preprocessed_image)
 
-        # plt.subplot(121)
-        # plt.imshow(preprocessed_image, cmap='gray')
-        # plt.subplot(122)
-        plt.imshow(seg_image, cmap='gray')
-        plt.show()
+        if save:
+            imageio.imwrite(save/'segemented_img.png', seg_image)
+            for i in range(len(seg_lines)):
+                imageio.imwrite(save/f'segmented_line_{i}.png', seg_lines[i])
+        
+        
  
 
-    def preprocess(self, image):
+    def preprocess(self, image, save):
 
-        image = grayscaling(image)
+        greyscaled_image = grayscaling(image)
 
-        image = gaussian_blur(image, 2, 5)
+        filtered_image = gaussian_blur(greyscaled_image, 2, 5)
 
-        image = sharpen(image)
+        sharpened_image = sharpen(filtered_image)
 
-        image = tresholding(image)
+        binary_image = tresholding(sharpened_image)
 
         ## not sure of this approach, read README for futher understanding
-        image = erode(image)
-        image = dilate(image)
+        morphfiltered_image = erode(binary_image)
+        morphfiltered_image = dilate(morphfiltered_image)
 
-        image = deskew(image) 
+        deskewed_image = deskew(morphfiltered_image) 
 
-        image = binary_inv(image)
+        preprocessed_image = binary_inv(deskewed_image)
 
-        return image
+
+        if save:
+            imageio.imwrite(save/'original_image.png', image)
+            imageio.imwrite(save/'greyscaled_image.png', greyscaled_image.astype('uint8'))
+            imageio.imwrite(save/'filtered_image.png', filtered_image.astype('uint8'))
+            imageio.imwrite(save/'sharpened_image.png', sharpened_image.astype('uint8'))
+            imageio.imwrite(save/'binary_image.png', binary_image.astype('uint8'))
+            imageio.imwrite(save/'morphfiltered_image.png', morphfiltered_image.astype('uint8'))
+            imageio.imwrite(save/'deskewed_image.png', deskewed_image.astype('uint8'))
+            imageio.imwrite(save/'preprocessed_image.png', preprocessed_image.astype('uint8'))
+
+
+        return preprocessed_image
 
 
     def load(self, dir):

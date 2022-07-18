@@ -169,7 +169,13 @@ def dilate(image):
             The dilated image
     """
     
-    kernel = np.ones((2,2)).astype("uint8")
+    kernel = np.array([
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,1,1,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+    ]).astype("uint8")
     new_image = cv2.dilate(image, kernel, iterations=1)
 
     return new_image
@@ -187,7 +193,13 @@ def erode(image):
             The eroded image
     """
 
-    kernel = np.array([[1,0,], [0, 1]]).astype(np.uint8)
+    kernel = np.array([
+        [0,0,0,0,0],
+        [0,0,0,0,0],
+        [0,1,1,0,0],
+        [0,0,0,0,0],
+        [0,0,0,0,0]
+    ]).astype("uint8")
     new_image = cv2.erode(image, kernel, iterations=1)
     
     return new_image
@@ -225,4 +237,4 @@ def sharpen(image):
     return cv2.filter2D(image, -1, kernel)
 
 def binary_inv(image):
-    return (((image.astype('float32')/255+1)%2)*255).astype('uint8')
+    return cv2.bitwise_not(image)
