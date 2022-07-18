@@ -112,7 +112,7 @@ For line segmentation, an U-net convolutional neural network will be used. It wi
 The Convolutional Neural Network was trained with 300 images printed from websites. Below can be seen some results:
 
 With book page photograph.
-<img title="LineSegmented" alt="LineSegmentation" src="docs/last_output/segmented_img.png" width="1200" height="400">
+<img title="LineSegmented" alt="LineSegmentation" src="docs/last_output/segemented_img.png" width="1200" height="400">
 
 The results of this step must be improved with more data variety.
 
